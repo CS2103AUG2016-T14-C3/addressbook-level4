@@ -255,7 +255,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have)  - `* *`,  Low (un
 
 Priority | As a ... | I want to ...           | So that I can... 
 -------- | :------- | :---------------------- | :--------------- 
-`* * *`  | new iser | see usage instructions  | use the app as intended
+`* * *`  | new user | see usage instructions  | use the app as intended
 `* * *`  | user     | add a new task | add something to my todo list without a time restrictions 
 `* * *`  | user     | add a new deadline          | add something to my todo list with a deadline 
 `* * *`  | user     | add a new event         | add something to my todo list with a start and end time 
