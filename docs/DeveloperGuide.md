@@ -5,10 +5,10 @@
 * [Implementation](#implementation)
 * [Testing](#testing)
 * [Dev Ops](#dev-ops)
-* [Appendix A: User Stories](#appendix-a--user-stories)
-* [Appendix B: Use Cases](#appendix-b--use-cases)
-* [Appendix C: Non Functional Requirements](#appendix-c--non-functional-requirements)
-* [Appendix D: Glossary](#appendix-d--glossary)
+* [Appendix A: User Stories] (#appendix-a--user-stories)
+* [Appendix B: Use Cases] (#appendix-b--use-cases)
+* [Appendix C: Non Functional Requirements] (#appendix-c--non-functional-requirements)
+* [Appendix D: Glossary] (#appendix-d--glossary)
 * [Appendix E : Product Survey](#appendix-e-product-survey)
 
 
@@ -283,32 +283,30 @@ Priority | As a ... | I want to ...           | So that I can...
 **MSS**
 
 1. User requests to list task/deadline/event (TDE)
-2. AddressBook shows a list of TDE
+2. App shows a list of TDE
 3. User requests to delete a specific TDE in the list
-4. AddressBook deletes the TDE
+4. App deletes the TDE
 Use case ends.
 
 **Extensions**
 
-2a. The list is empty
+2a. The TDE list is empty
 
 > Use case ends
 
-3a. The given index is invalid
-
-> 3a1. AddressBook shows an error message <br>
-  Use case resumes at step 2
-
-{More to be added}
+#### Use case: Add a task/deadline/event
+1. User requests to add task/deadline/event (TDE)
+2. 
+Use case ends.
 
 ## Appendix C : Non Functional Requirements
 
 1. Should work on any [mainstream OS](#mainstream-os) as long as it has Java `1.8.0_60` or higher installed.
-2. Should be able to hold up to 1000 persons.
+2. Should be able to hold up to 10000 TDE.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
 
-{More to be added}
+
 
 ## Appendix D : Glossary
 
@@ -318,7 +316,7 @@ Use case ends.
 
 ##### Private contact detail
 
-> A contact detail that is not meant to be shared with others
+> Questions? Complaints? Contact Harsh Gadodia at gadodia.harsh@gmail.com 
 
 ## Appendix E : Product Survey
 

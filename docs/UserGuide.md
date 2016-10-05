@@ -2,8 +2,8 @@
 
 * [Quick Start](#quick-start)
 * [Features](#features)
-* [FAQ](#faq) - not done 
-* [Command Summary](#command-summary) - not done 
+* [FAQ] (#faq) - not done 
+* [Command Summary] (#command-summary) - not done 
 
 ## Quick Start
 
