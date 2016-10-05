@@ -257,7 +257,7 @@ Priority | As a ... | I want to ...           | So that I can...
 -------- | :------- | :---------------------- | :--------------- 
 `* * *`  | new user | see usage instructions  | use the app as intended
 `* * *`  | user     | add a new task | add something to my todo list without a time restrictions 
-`* * *`  | user     | add a new deadline          | add something to my todo list with a deadline 
+`* * *`  | user     | add a new deadline      | add something to my todo list with a deadline 
 `* * *`  | user     | add a new event         | add something to my todo list with a start and end time 
 `* * *`  | user     | view all tasks/deadlines/events   | view my entire todo list
 `* * *`  | user     | view all undone tasks/deadlines/events | view items I need to work on
@@ -278,14 +278,14 @@ Priority | As a ... | I want to ...           | So that I can...
 
 (For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
 
-#### Use case: Delete person
+#### Use case: Delete an task/deadline/event
 
 **MSS**
 
-1. User requests to list persons
-2. AddressBook shows a list of persons
-3. User requests to delete a specific person in the list
-4. AddressBook deletes the person <br>
+1. User requests to list task/deadline/event (TDE)
+2. AddressBook shows a list of TDE
+3. User requests to delete a specific TDE in the list
+4. AddressBook deletes the TDE
 Use case ends.
 
 **Extensions**
@@ -322,5 +322,18 @@ Use case ends.
 
 ## Appendix E : Product Survey
 
-{TODO: Add a summary of competing products}
+Product Name | Strength | Weakness  
+
+Google Calendar | Understands NLP | Very slow to use, requires a lot of steps to add a simple event
+
+Todo.txt | Simplistic, works across devices | Quite complicated for new users to pick up as it has a whole range of shortcut-commands 
+
+Swipes | Simple, cross-platform | Unable to specify data storage location |
+
+Fantastical| Uses NLP, quick access in mini window | Works only on Mac/iOS platform
+
+ 
+
+
+
 
