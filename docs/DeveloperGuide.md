@@ -24,6 +24,7 @@
 2. **Eclipse** IDE
 3. **e(fx)clipse** plugin for Eclipse (Do the steps 2 onwards given in
    [this page](http://www.eclipse.org/efxclipse/install.html#for-the-ambitious))
+   
 4. **Buildship Gradle Integration** plugin from the Eclipse Marketplace
 
 
@@ -272,8 +273,6 @@ Priority | As a ... | I want to ...           | So that I can...
 `* *`    | user     | sort uncompleted deadlines by deadline | know which deadline I should finish first
 `* *`    | user     | integrate with Google Cal | export todo list to Google Cal
 
-{More to be added}
-
 ## Appendix B : Use Cases
 
 (For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
@@ -282,21 +281,15 @@ Priority | As a ... | I want to ...           | So that I can...
 
 **MSS**
 
-1. User requests to list task/deadline/event (TDE)
-2. App shows a list of TDE
+1. User requests to list task/deadline/event (item)
+2. App shows a list of items
 3. User requests to delete a specific TDE in the list
 4. App deletes the TDE
 Use case ends.
 
-**Extensions**
-
-2a. The TDE list is empty
-
-> Use case ends
-
-#### Use case: Add a task/deadline/event
-1. User requests to add task/deadline/event (TDE)
-2. 
+#### Use case: Add an item (task/deadline/event)
+1. User requests to add task/deadline/event 
+2. Depending on parameters entered
 Use case ends.
 
 ## Appendix C : Non Functional Requirements
@@ -314,15 +307,15 @@ Use case ends.
 
 ## Appendix E : Product Survey
 
-Product Name | Strength | Weakness  
+Product Name    | Strength                              | Weakness  
 
-Google Calendar | Understands NLP | Very slow to use, requires a lot of steps to add a simple event
+Google Calendar | Understands NLP                       | Very slow to use, requires a lot of steps to add a simple event
 
-Todo.txt | Simplistic, works across devices | Quite complicated for new users to pick up as it has a whole range of shortcut-commands 
+Todo.txt        | Simplistic, works across devices      | Quite complicated for new users to pick up as it has a whole range of shortcut-commands 
 
-Swipes | Simple, cross-platform | Unable to specify data storage location |
+Swipes          | Simple, cross-platform                | Unable to specify data storage location |
 
-Fantastical| Uses NLP, quick access in mini window | Works only on Mac/iOS platform
+Fantastical     | Uses NLP, quick access in mini window | Works only on Mac/iOS platform
 
  
 
