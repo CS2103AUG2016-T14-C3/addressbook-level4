@@ -16,8 +16,12 @@ import seedu.taskmanager.model.item.UniqueItemList.ItemNotFoundException;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Locale;
 import java.util.Set;
 import java.util.logging.Logger;
+
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.Stack;
 
 /**
@@ -303,10 +307,16 @@ public class ModelManager extends ComponentManager implements Model {
 
         @Override
         public boolean run(ReadOnlyItem item) {
-            return nameKeyWords.stream()
-                    .filter(keyword -> StringUtil.containsIgnoreCase(item.getName().value, keyword))
-                    .findAny()
-                    .isPresent();
+            int threshold = 2;
+            System.out.println(StringUtils.getLevenshteinDistance(item.getName().value.toLowerCase(), StringUtils.join(nameKeyWords, " ").toLowerCase()));
+            System.out.println(StringUtils.join(nameKeyWords, " "));
+            System.out.println(item.getName().value);
+            Locale newlocale = new Locale("en");
+            return (StringUtils.getLevenshteinDistance(item.getName().value.toLowerCase(), StringUtils.join(nameKeyWords, " ").toLowerCase()) < threshold);
+//            return nameKeyWords.stream()
+//                    .filter(keyword -> (StringUtils.getLevenshteinDistance(item.getName().value, keyword) < threshold))
+//                    .findAny()
+//                    .isPresent();
         }
 
         @Override
