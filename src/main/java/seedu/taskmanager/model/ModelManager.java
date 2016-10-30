@@ -298,6 +298,7 @@ public class ModelManager extends ComponentManager implements Model {
         }
     }
 
+    /*
     private class NameQualifier implements Qualifier {
         private Set<String> nameKeyWords;
 
@@ -307,17 +308,34 @@ public class ModelManager extends ComponentManager implements Model {
 
         @Override
         public boolean run(ReadOnlyItem item) {
-            int threshold = 2;
+           /* int threshold = 2;
             System.out.println(StringUtils.getLevenshteinDistance(item.getName().value.toLowerCase(), StringUtils.join(nameKeyWords, " ").toLowerCase()));
             System.out.println(StringUtils.join(nameKeyWords, " "));
             System.out.println(item.getName().value);
             Locale newlocale = new Locale("en");
-            return (StringUtils.getLevenshteinDistance(item.getName().value.toLowerCase(), StringUtils.join(nameKeyWords, " ").toLowerCase()) < threshold);
-//            return nameKeyWords.stream()
-//                    .filter(keyword -> (StringUtils.getLevenshteinDistance(item.getName().value, keyword) < threshold))
-//                    .findAny()
-//                    .isPresent();
-        }
+            return (StringUtils.getLevenshteinDistance(item.getName().value.toLowerCase(), 
+            StringUtils.join(nameKeyWords, " ").toLowerCase()) < threshold); 
+          return nameKeyWords.stream()
+                   .filter(keyword -> (StringUtils.getLevenshteinDistance(item.getName().value, keyword)) //< threshold))
+                    .findAny()
+                    .isPresent();
+        } */
+        
+         
+        private class NameQualifier implements Qualifier {
+            private Set<String> nameKeyWords;
+
+            NameQualifier(Set<String> nameKeyWords) {
+                this.nameKeyWords = nameKeyWords;
+            }
+
+            @Override
+            public boolean run(ReadOnlyItem item) {
+                return nameKeyWords.stream()
+                        .filter(keyword -> StringUtil.containsIgnoreCase(item.getName().value, keyword))
+                        .findAny()
+                        .isPresent();
+            } 
 
         @Override
         public String toString() {
