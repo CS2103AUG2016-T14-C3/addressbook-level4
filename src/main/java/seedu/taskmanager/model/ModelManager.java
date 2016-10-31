@@ -296,33 +296,35 @@ public class ModelManager extends ComponentManager implements Model {
         public String toString() {
             return "name=" + String.join(", ", itemType);
         }
-    }
+    } 
 
+    //start edit here 
     /*
     private class NameQualifier implements Qualifier {
         private Set<String> nameKeyWords;
 
         NameQualifier(Set<String> nameKeyWords) {
             this.nameKeyWords = nameKeyWords;
+            System.out.println(this.nameKeyWords); //added this
         }
 
         @Override
         public boolean run(ReadOnlyItem item) {
-           /* int threshold = 2;
+            int threshold = 3;
             System.out.println(StringUtils.getLevenshteinDistance(item.getName().value.toLowerCase(), StringUtils.join(nameKeyWords, " ").toLowerCase()));
             System.out.println(StringUtils.join(nameKeyWords, " "));
-            System.out.println(item.getName().value);
+            //System.out.println(item.getName().value);
+            System.out.println("hello, it's me!");
             Locale newlocale = new Locale("en");
             return (StringUtils.getLevenshteinDistance(item.getName().value.toLowerCase(), 
             StringUtils.join(nameKeyWords, " ").toLowerCase()) < threshold); 
-          return nameKeyWords.stream()
-                   .filter(keyword -> (StringUtils.getLevenshteinDistance(item.getName().value, keyword)) //< threshold))
-                    .findAny()
-                    .isPresent();
-        } */
-        
-         
-        private class NameQualifier implements Qualifier {
+        } 
+    }
+         */
+    
+    
+         //this is the old find method
+         private class NameQualifier implements Qualifier {
             private Set<String> nameKeyWords;
 
             NameQualifier(Set<String> nameKeyWords) {
@@ -331,17 +333,36 @@ public class ModelManager extends ComponentManager implements Model {
 
             @Override
             public boolean run(ReadOnlyItem item) {
-                return nameKeyWords.stream()
-                        .filter(keyword -> StringUtil.containsIgnoreCase(item.getName().value, keyword))
-                        .findAny()
-                        .isPresent();
+                //if (nameKeyWords.stream().filter(Mark -> StringUtil.containsIgnoreCase(".", Mark)).findAny().isPresent()) { //this statement needs to be editted
+                if (nameKeyWords.iterator().next().toString() == 34) { 
+                    System.out.println("I am doing the if statement you fool"); // remove this 
+                    int threshold = 3;
+                    System.out.println(StringUtils.getLevenshteinDistance(item.getName().value.toLowerCase(), StringUtils.join(nameKeyWords, " ").toLowerCase()));
+                    System.out.println(StringUtils.join(nameKeyWords, " "));
+                    System.out.println(item.getName().value);
+                    System.out.println("hello, it's me!");
+                    Locale newlocale = new Locale("en");
+                    return (StringUtils.getLevenshteinDistance(item.getName().value.toLowerCase(), 
+                    StringUtils.join(nameKeyWords, " ").toLowerCase()) < threshold);           
+                }
+                
+                else {                   
+                    System.out.println("I am doing the else statement you fool"); // remove this 
+                    return nameKeyWords.stream()
+                            .filter(keyword -> StringUtil.containsIgnoreCase(item.getName().value, keyword))
+                            .findAny()
+                            .isPresent();  
+                }                   
             } 
+            
+            
+            
 
         @Override
         public String toString() {
             return "name=" + String.join(", ", nameKeyWords);
         }
-    }
+    } 
     
     //@@author A0140060A
     private class StatusQualifier implements Qualifier {
