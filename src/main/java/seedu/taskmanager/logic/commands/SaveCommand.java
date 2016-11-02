@@ -5,6 +5,7 @@ import java.util.logging.Logger;
 
 import seedu.taskmanager.commons.core.Config;
 import seedu.taskmanager.commons.core.LogsCenter;
+import seedu.taskmanager.commons.events.model.TaskManagerChangedEvent;
 import seedu.taskmanager.commons.exceptions.DataConversionException;
 import seedu.taskmanager.commons.util.ConfigUtil;
 import seedu.taskmanager.model.ReadOnlyTaskManager;
@@ -40,21 +41,23 @@ public class SaveCommand extends Command {
         String defaultConfigFilePath = Config.DEFAULT_CONFIG_FILE;
         
         try {
-            Config currentConfig = ConfigUtil.readConfig(defaultConfigFilePath).orElse(new Config());
+            Config configFile = ConfigUtil.readConfig(defaultConfigFilePath).orElse(new Config());
+            logger.info("TESTING: " + configFile.toString());
 
-            String previousFilePath = currentConfig.getTaskManagerFilePath();
+            String previousTaskManagerFilePath = configFile.getTaskManagerFilePath();
             
-            currentConfig.setTaskManagerFilePath(newTaskManagerFilePath);
-            ConfigUtil.saveConfig(currentConfig, defaultConfigFilePath);
+            configFile.setTaskManagerFilePath(newTaskManagerFilePath);
+            ConfigUtil.saveConfig(configFile, defaultConfigFilePath);
             
-            StorageManager previousStorage = new StorageManager(previousFilePath, currentConfig.getUserPrefsFilePath());
-            StorageManager newStorage = new StorageManager(newTaskManagerFilePath, currentConfig.getUserPrefsFilePath());
+            StorageManager previousStorage = new StorageManager(previousTaskManagerFilePath, configFile.getUserPrefsFilePath());
+            StorageManager newStorage = new StorageManager(newTaskManagerFilePath, configFile.getUserPrefsFilePath());
             
+            // copy data from old task manager over to new one
             ReadOnlyTaskManager previousTaskManager = previousStorage.readTaskManager().orElse(new TaskManager());
-            newStorage.saveTaskManager(previousTaskManager);
+            newStorage.handleTaskManagerChangedEvent(new TaskManagerChangedEvent(previousTaskManager));
             
-            logger.fine("Saved to specified file path: " + newTaskManagerFilePath);
-            
+            logger.fine("New data file created. Saved to specified file path: " + newTaskManagerFilePath);
+            logger.info("TESTING CHANGE: " + configFile.toString());
             return new CommandResult(String.format(MESSAGE_SUCCESS, newStorage.getTaskManagerFilePath()));
             
         } catch (DataConversionException e) {
