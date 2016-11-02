@@ -121,6 +121,7 @@ public class TaskManager implements ReadOnlyTaskManager {
         item.setTags(new UniqueTagList(commonTagReferences));
     }
 
+    //@@author A0143641M-reused
     public boolean removeItem(ReadOnlyItem key) throws UniqueItemList.ItemNotFoundException {
         if (items.remove(key)) {
             return true;

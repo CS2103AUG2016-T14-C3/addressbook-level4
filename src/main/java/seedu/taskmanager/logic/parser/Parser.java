@@ -761,7 +761,7 @@ public class Parser {
     
     //@@author A0143641M
     /**
-     * Parses argument in the context of the saveAs specified file command.
+     * Parses argument in the context of the save to specified file command.
      * @param arguments full argument args string
      * @return the prepared command
      */
@@ -803,6 +803,8 @@ public class Parser {
         return new HashSet<>(tags);
     }
 
+
+    //@@author A0143641M
     /**
      * Parses arguments in the context of the delete item command.
      *
@@ -814,7 +816,7 @@ public class Parser {
         final Matcher itemIndexesMatcher = ITEM_INDEXES_ARGS_FORMAT.matcher(args.trim());
         final Matcher itemIndexMatcher = ITEM_INDEX_ARGS_FORMAT.matcher(args.trim());
 
-        if(itemIndexMatcher.matches()) {
+        if (itemIndexMatcher.matches()) {
             Optional<Integer> index = parseIndex(args);
             if(!index.isPresent()) {
                 return new IncorrectCommand(
@@ -823,14 +825,13 @@ public class Parser {
             return new DeleteCommand(index.get());
         }
 
-        //@@author A0143641M
-        else if(itemIndexesMatcher.matches()) {
+        else if (itemIndexesMatcher.matches()) {
             // separate into the different indexes
             args = args.trim();
             ArrayList<String> indexList = new ArrayList<String>(Arrays.asList(args.split("[^0-9]")));
             
             // remove empty strings from split
-            for(Iterator<String> itr = indexList.iterator(); itr.hasNext(); ) {
+            for (Iterator<String> itr = indexList.iterator(); itr.hasNext(); ) {
                 String indexString = itr.next();
                 if(indexString.equals("")) {
                     itr.remove();
@@ -838,9 +839,9 @@ public class Parser {
             }
             ArrayList<Integer> indexesToDelete = new ArrayList<Integer>();
             
-            for(String indexInList: indexList) {
+            for (String indexInList: indexList) {
                 Optional<Integer> index = parseIndex(indexInList);
-                if(!index.isPresent()) {
+                if (!index.isPresent()) {
                     return new IncorrectCommand(
                             String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteCommand.MESSAGE_USAGE));
                 }
@@ -849,7 +850,6 @@ public class Parser {
                 }
             }
             return new DeleteCommand(indexesToDelete);
-        //@@author
         }
         else {
             return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteCommand.MESSAGE_USAGE));
