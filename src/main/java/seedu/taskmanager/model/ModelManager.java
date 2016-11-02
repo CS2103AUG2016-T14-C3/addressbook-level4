@@ -16,11 +16,13 @@ import seedu.taskmanager.model.item.UniqueItemList.ItemNotFoundException;
 
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Locale;
+//import java.util.Locale;
 import java.util.Set;
 import java.util.logging.Logger;
 
 import org.apache.commons.lang3.StringUtils;
+
+import com.google.common.base.Joiner;
 
 import java.util.Stack;
 
@@ -297,33 +299,8 @@ public class ModelManager extends ComponentManager implements Model {
             return "name=" + String.join(", ", itemType);
         }
     } 
-
-    //start edit here 
-    /*
-    private class NameQualifier implements Qualifier {
-        private Set<String> nameKeyWords;
-
-        NameQualifier(Set<String> nameKeyWords) {
-            this.nameKeyWords = nameKeyWords;
-            System.out.println(this.nameKeyWords); //added this
-        }
-
-        @Override
-        public boolean run(ReadOnlyItem item) {
-            int threshold = 3;
-            System.out.println(StringUtils.getLevenshteinDistance(item.getName().value.toLowerCase(), StringUtils.join(nameKeyWords, " ").toLowerCase()));
-            System.out.println(StringUtils.join(nameKeyWords, " "));
-            //System.out.println(item.getName().value);
-            System.out.println("hello, it's me!");
-            Locale newlocale = new Locale("en");
-            return (StringUtils.getLevenshteinDistance(item.getName().value.toLowerCase(), 
-            StringUtils.join(nameKeyWords, " ").toLowerCase()) < threshold); 
-        } 
-    }
-         */
     
-    
-         //this is the old find method
+         
          private class NameQualifier implements Qualifier {
             private Set<String> nameKeyWords;
 
@@ -333,26 +310,67 @@ public class ModelManager extends ComponentManager implements Model {
 
             @Override
             public boolean run(ReadOnlyItem item) {
-                //if (nameKeyWords.stream().filter(Mark -> StringUtil.containsIgnoreCase(".", Mark)).findAny().isPresent()) { //this statement needs to be editted
-                if (nameKeyWords.iterator().next().toString() == 34) { 
-                    System.out.println("I am doing the if statement you fool"); // remove this 
-                    int threshold = 3;
+                
+                System.out.println("Look at this!" + Joiner.on(" ").join(nameKeyWords));
+                
+                int threshold = 4;
+                
+                /*return (StringUtils.getLevenshteinDistance(item.getName().value.toLowerCase(), 
+                        (StringUtils.join(nameKeyWords, " ").toLowerCase())) < threshold);*/
+                
+                             
+                return (StringUtils.containsAny(item.getName().value.toLowerCase(), Joiner.on(" ").join(nameKeyWords).toLowerCase()));
+                
+                /*return nameKeyWords.stream()
+                        .filter(keyword -> StringUtil.containsIgnoreCase(item.getName().value, keyword))
+                        .findAny()
+                        .isPresent();  */
+                /*
+                if (nameKeyWords.iterator().next().toString().contains(" ")) { 
+                    
+                    //System.out.println("I am doing the if statement you fool"); // remove this 
+                    
+                    int threshold = 4;
+                    
+                    System.out.println(nameKeyWords.toString());
                     System.out.println(StringUtils.getLevenshteinDistance(item.getName().value.toLowerCase(), StringUtils.join(nameKeyWords, " ").toLowerCase()));
                     System.out.println(StringUtils.join(nameKeyWords, " "));
                     System.out.println(item.getName().value);
                     System.out.println("hello, it's me!");
-                    Locale newlocale = new Locale("en");
+                    
+                    //Locale newlocale = new Locale("en");
+                   
+                    System.out.println(StringUtils.substringBetween("substring in between is " + StringUtils.join(nameKeyWords, " ").toLowerCase(),"\""));
+                    
                     return (StringUtils.getLevenshteinDistance(item.getName().value.toLowerCase(), 
-                    StringUtils.join(nameKeyWords, " ").toLowerCase()) < threshold);           
-                }
-                
+                    StringUtils.substringBetween(StringUtils.join(nameKeyWords, " ").toLowerCase(), "\"")) < threshold);    
+                    
+                    /* return nameKeyWords.stream()
+                            .filter(keyword -> StringUtil.containsIgnoreCase(item.getName().value.toLowerCase(), StringUtils.join(nameKeyWords, " ").toLowerCase()
+                            .findAny()
+                            .isPresent());                       
+                } */
+            
+                /*
                 else {                   
                     System.out.println("I am doing the else statement you fool"); // remove this 
+                    
+                    //this is the original stub
                     return nameKeyWords.stream()
                             .filter(keyword -> StringUtil.containsIgnoreCase(item.getName().value, keyword))
                             .findAny()
                             .isPresent();  
-                }                   
+                    
+                   
+                    
+                    /* int threshold = 2;
+                    Locale newlocale = new Locale("en"); 
+                    
+                    
+                    return (StringUtils.getLevenshteinDistance(item.getName().value.toLowerCase(), 
+                            nameKeyWords.toString()) < threshold); */
+                    
+             //   }                   
             } 
             
             
