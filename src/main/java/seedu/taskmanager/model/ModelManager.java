@@ -331,7 +331,9 @@ public class ModelManager extends ComponentManager implements Model {
                 if (!item.getName().value.toLowerCase().contains(keyword.toLowerCase())) {
                     System.out.println(keyword);
                     System.out.println(item.getName().value.toLowerCase());
-                    return (StringUtils.getLevenshteinDistance(keyword.toLowerCase(),
+                    System.out.println(StringUtils.getLevenshteinDistance(keyword.toLowerCase(), 
+                            (item.getName().value.toLowerCase())) < threshold);
+                    return (StringUtils.getLevenshteinDistance(keyword.toLowerCase(), 
                             (item.getName().value.toLowerCase())) < threshold);
                             
                 }                          
