@@ -21,6 +21,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.logging.Logger;
 import java.util.Stack;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Represents the in-memory model of the task manager data.
@@ -313,6 +314,7 @@ public class ModelManager extends ComponentManager implements Model {
         }
     }
   //@@author A0135792X
+    
     private class NameQualifier implements Qualifier {
         private Set<String> nameKeyWords;
 
@@ -323,13 +325,30 @@ public class ModelManager extends ComponentManager implements Model {
         @Override
         public boolean run(ReadOnlyItem item) {
             
+           int threshold = 3;
+            
             for (String keyword : nameKeyWords ) {
                 if (!item.getName().value.toLowerCase().contains(keyword.toLowerCase())) {
-                    return false;
-                }
+                    System.out.println(keyword);
+                    System.out.println(item.getName().value.toLowerCase());
+                    return (StringUtils.getLevenshteinDistance(keyword.toLowerCase(),
+                            (item.getName().value.toLowerCase())) < threshold);
+                            
+                }                          
             }
-            return true;
+           
+        return true;
+         
+           /*
+           for (String keyword: nameKeyWords) {
+               if (StringUtils.getLevenshteinDistance(item.getName().value.toLowerCase(), keyword.toLowerCase()) < threshold){
+                   System.out.println(StringUtils.getLevenshteinDistance(item.getName().value.toLowerCase(), keyword.toLowerCase()));
+                   return true;
+               }
+           }
+           return false; */
         }
+        
 
         @Override
         public String toString() {
