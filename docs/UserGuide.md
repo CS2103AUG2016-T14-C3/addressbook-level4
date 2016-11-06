@@ -96,7 +96,7 @@
 
 ### When you need to find a deadline, task or event
 
-1. Type `f[ind] KEYWORD` where `KEYWORD` is part of the item's name and press `Enter`.
+1. Type `f[ind] KEYWORD` where `KEYWORD` is part of the item's name and press `Enter`. App does a "fuzzy search" whereby it gives results a maximum of 2 characters away from the actual result, accounting for typos from user. 
 
 2. App will display a list of items with names containing the keyword in the bottom left panel.
 
@@ -356,3 +356,4 @@ This application makes use of the [addressbook-level4](https://github.com/se-edu
 
 Libraries used: <br>
 [prettytime](https://github.com/ocpsoft/prettytime)
+[commons-lang](http://commons.apache.org/proper/commons-lang/download_lang.cgi)
