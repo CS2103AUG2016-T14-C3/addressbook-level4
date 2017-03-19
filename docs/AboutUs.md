@@ -11,7 +11,7 @@ Role: Project Mentor
 
 
 #### [Tan Min Rong Samson @samsontmr](http://github.com/samsontmr)
-<img src="https://scontent-sin6-1.xx.fbcdn.net/v/t1.0-9/12342568_10154947929683084_4939899865158820460_n.jpg?oh=62c43f3e557e8203ec50b7a927d35098&oe=5870CC3A" width="150"><br>
+<img src="https://avatars3.githubusercontent.com/u/15007950?v=3&s=460" width="150"><br>
 Role: Team Lead / Scheduling & Tracking / Deliverables & Deadlines / SourceTree Expert
 * Component in charge of: [Logic](https://github.com/CS2103AUG2016-T14-C3/main/blob/master/docs/DeveloperGuide.md#logic-component)
 * Aspects/tools in charge of: Team Lead, Scheduling & Tracking, Deliverables & Deadlines, SourceTree
@@ -36,7 +36,7 @@ Role: Team Lead / Scheduling & Tracking / Deliverables & Deadlines / SourceTree 
 		* Morphing of documentation  [[3daaa72](https://github.com/CS2103AUG2016-T14-C3/main/commit/3daaa7253532cff0cf6f8c379cc7ac482c94e56d)]
 		* [FAQ](https://github.com/CS2103AUG2016-T14-C3/main/blob/master/docs/UserGuide.md#faq)
 		* [Command Summary](https://github.com/CS2103AUG2016-T14-C3/main/blob/master/docs/UserGuide.md#command-summary)
-	* Artistic direction for UI [[4a3d400](https://github.com/CS2103AUG2016-T14-C3/main/commit/4a3d4003b99de9e9507b4ecbb78c8b2158ea0a88)] [[8e6248c](https://github.com/CS2103AUG2016-T14-C3/main/commit/8e6248cc23d8b9a42b31bb1ce253cb8c53b4a994)] [[12d7c8b](https://github.com/CS2103AUG2016-T14-C3/main/commit/12d7c8b759e285860185b16d4040522dde76766e)] [[3e8e60d](https://github.com/CS2103AUG2016-T14-C3/main/commit/3e8e60d2843f62351f8a4841da21d9cd330814e5)]
+	* UI/UX [[4a3d400](https://github.com/CS2103AUG2016-T14-C3/main/commit/4a3d4003b99de9e9507b4ecbb78c8b2158ea0a88)] [[8e6248c](https://github.com/CS2103AUG2016-T14-C3/main/commit/8e6248cc23d8b9a42b31bb1ce253cb8c53b4a994)] [[12d7c8b](https://github.com/CS2103AUG2016-T14-C3/main/commit/12d7c8b759e285860185b16d4040522dde76766e)] [[3e8e60d](https://github.com/CS2103AUG2016-T14-C3/main/commit/3e8e60d2843f62351f8a4841da21d9cd330814e5)]
 
 -----
 [comment]: # (@@author )
